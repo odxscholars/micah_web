@@ -1,0 +1,3 @@
+.card {
+  @apply bg-white rounded-2xl p-6 shadow text-center;
+}
