@@ -14,7 +14,12 @@ function isBirthday() {
 
 // Utility: pick a random image from /public
 function getRandomImage() {
-    const images = ['cute0.jpg', 'cute1.jpg', 'cute2.jpg'];
+    const images:string[] = [];
+    for (let i = 0; i < 7; i++) {
+        images.push("cute" + i + ".jpg");
+
+    }
+    console.log(images)
     const index = Math.floor(Math.random() * images.length);
     return images[index];
 }
