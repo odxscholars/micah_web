@@ -69,9 +69,9 @@ export const questions: Question[] = [
   },
   {
     id: 10,
-    text: 'Where do we dream of traveling next?',
-    options: ['Vietnam', 'Tokyo', 'New York', 'A cozy cabin'],
+    text: 'Where did we first say I love you?',
+    options: ['My house', 'Your house', 'My car', 'SM Bicutan'],
     correctIndex: 0,
-    hint: 'We were supposed to go this year and we planned how I was supposed to meet your parents.',
+    hint: 'Literally right after we fought.',
   },
 ];
