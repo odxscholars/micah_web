@@ -17,7 +17,7 @@ export default function GradientBG({children}: { children: ReactNode }) {
             transition={
                 reduce
                     ? undefined
-                    : {duration: 2, repeat: Infinity, repeatType: 'loop', ease: 'linear'}
+                    : {duration: 5, repeat: Infinity, repeatType: 'reverse', ease: 'linear'}
             }
         >
             {children}

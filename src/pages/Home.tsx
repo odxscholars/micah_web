@@ -1,8 +1,8 @@
 // src/pages/Home.tsx
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { HER_NAME, BIRTHDAY } from '../core/constants';
-import { getQuizCompleted } from '../core/storage';
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
+import {HER_NAME, BIRTHDAY} from '../core/constants';
+import {getQuizCompleted} from '../core/storage';
 import PrimaryButton from '../components/PrimaryButton';
 import LockedBadge from '../components/LockedBadge';
 
@@ -58,8 +58,9 @@ export default function Home() {
                         </Link>
                     ) : (
                         <div className="flex flex-col items-center">
-                            <PrimaryButton disabled>Locked</PrimaryButton>
-                            <LockedBadge />
+                            <PrimaryButton className="opacity-50 cursor-not-allowed"
+                                           onClick={() => alert('Please finish the quiz first!')}>Locked</PrimaryButton>
+                            <LockedBadge/>
                         </div>
                     )}
                 </div>
@@ -69,11 +70,11 @@ export default function Home() {
                     <h2 className="text-xl mb-4">Bleh</h2>
                     {currentImage && (
                         <button onClick={handleShowRandom}>
-                        <img
-                            src={currentImage}
-                            alt="Random"
-                            className="rounded-lg max-w-full h-auto mb-4"
-                        /> </button>
+                            <img
+                                src={currentImage}
+                                alt="Random"
+                                className="rounded-lg max-w-full h-auto mb-4"
+                            /></button>
                     )}
                     {/*<button*/}
                     {/*    onClick={handleShowRandom}*/}
