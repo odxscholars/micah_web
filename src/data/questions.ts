@@ -18,7 +18,8 @@ export const questions: Question[] = [
     id: 2,
     text: 'What is our favorite movie to watch together?',
     options: ['Romantic comedy', 'Sci-fi adventure', 'Mystery thriller', 'Horror'],
-    correctIndex: 0,
+    correctIndex: 3,
+    hint: '"Come closer...I\'m scared"',
   },
   {
     id: 3,

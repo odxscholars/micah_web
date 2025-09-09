@@ -112,7 +112,7 @@ export default function Home() {
 
             {locked && (
                 <div
-                    className="absolute inset-0 bg-black/35 backdrop-blur-[20px] flex flex-col items-center justify-center text-white px-6"
+                    className="absolute inset-0 bg-black/35 backdrop-blur-[40px] flex flex-col items-center justify-center text-white px-6"
                     aria-hidden="true"
                 >
                     {/* Simple SVG lock so you don't need an icon lib */}
