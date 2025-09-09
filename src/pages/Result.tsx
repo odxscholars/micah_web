@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PrimaryButton from '../components/PrimaryButton';
 import { setQuizCompleted } from '../core/storage';
-import { celebrate } from '../utils/confetti';
+import { random_celebrate} from '../utils/confetti';
 
 export default function Result() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function Result() {
   const total = state?.total ?? 0;
 
   useEffect(() => {
-    celebrate();
+    random_celebrate();
   }, []);
 
   function openJar() {

@@ -7,7 +7,7 @@ import {
   getOpenedNoteIds,
   resetOpenedNotes,
 } from '../core/storage';
-import { burst, celebrate } from '../utils/confetti';
+import {burst,  random_celebrate} from '../utils/confetti';
 import { BIRTHDAY, HER_NAME } from '../core/constants';
 
 function isBirthday() {
@@ -19,14 +19,14 @@ export default function LoveJar() {
   const [current, setCurrent] = useState<number | null>(null);
 
   useEffect(() => {
-    if (isBirthday()) celebrate();
+    if (isBirthday()) random_celebrate();
   }, []);
 
   const remaining = loveNotes.filter((n) => !opened.includes(n.id));
 
   function draw() {
     if (!remaining.length) return;
-    const note = remaining[Math.floor(Math.random() * remaining.length)];
+    const note = remaining[0];
     setCurrent(note.id);
     addOpenedNoteId(note.id);
     setOpened((o) => [...o, note.id]);
