@@ -1,0 +1,5 @@
+.bg {
+  @apply min-h-screen flex flex-col;
+  background: linear-gradient(270deg, #ff0080, #e197bc, #efc3d4, #f5e0e9);
+  background-size: 300% 300%;
+}
