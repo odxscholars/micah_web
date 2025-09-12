@@ -155,7 +155,7 @@ export default function Home() {
                         Opens in {days}d {hours}h {minutes}m {seconds}s
                     </p>
                     <p className="text-sm opacity-90">
-                        ({BIRTHDAY.toLocaleDateString()})
+                        ({BIRTHDAY.toLocaleDateString('en-US', { timeZone: 'Asia/Manila' })})
                     </p>
                 </div>
             )}
