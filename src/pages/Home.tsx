@@ -24,11 +24,22 @@ function getRandomImage() {
     return images[index];
 }
 
+function formatTime(ms: number) {
+    const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+    const days = Math.floor(totalSeconds / (3600 * 24));
+    const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return {days, hours, minutes, seconds};
+}
+
 export default function Home() {
     const completed = getQuizCompleted();
 
     // state for the random image
     const [currentImage, setCurrentImage] = useState<string | null>(getRandomImage());
+
+    const [timeLeft, setTimeLeft] = useState(BIRTHDAY.getTime() - Date.now());
 
     const handleShowRandom = () => {
         setCurrentImage(getRandomImage());
@@ -37,8 +48,10 @@ export default function Home() {
 
 
     const birthdayToday = isBirthday();
-    const locked = !birthdayToday;
+    const locked = timeLeft > 0;
     const firedRef = useRef(false);
+
+    const {days, hours, minutes, seconds} = formatTime(timeLeft);
 
     useEffect(() => {
         if (!birthdayToday) {
@@ -49,6 +62,13 @@ export default function Home() {
         firedRef.current = true;
         random_celebrate();
     }, [birthdayToday]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimeLeft(BIRTHDAY.getTime() - Date.now());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
     return (
         <div className="relative max-w-md mx-auto p-4 space-y-6 text-center">
             {/* Main content (dimmed when locked) */}
@@ -126,7 +146,10 @@ export default function Home() {
                     </svg>
                     <p className="text-lg font-semibold">Locked until her birthday</p>
                     <p className="text-sm opacity-90">
-                        Opens on {BIRTHDAY.toLocaleDateString()}
+                        Opens in {days}d {hours}h {minutes}m {seconds}s
+                    </p>
+                    <p className="text-sm opacity-90">
+                        ({BIRTHDAY.toLocaleDateString()})
                     </p>
                 </div>
             )}
