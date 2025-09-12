@@ -65,7 +65,13 @@ export default function Home() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setTimeLeft(BIRTHDAY.getTime() - Date.now());
+            const diff = BIRTHDAY.getTime() - Date.now();
+            if (diff <= 0) {
+                clearInterval(interval);
+                setTimeLeft(0);
+            } else {
+                setTimeLeft(diff);
+            }
         }, 1000);
         return () => clearInterval(interval);
     }, []);
